@@ -9,10 +9,7 @@
     "version": "15.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["forestry_base"],
-    "data": [
-        "views/view_task_form2_inherited.xml",
-        "views/hr_timesheet_line_tree.xml"
-    ],
+    "data": ["views/view_task_form2_inherited.xml", "views/hr_timesheet_line_tree.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
