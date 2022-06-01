@@ -2,11 +2,11 @@
     :target: http://www.gnu.org/licenses/gpl-3.0-standalone.html
     :alt: License: GPL-3
 
-=============
-Forestry Base
-=============
+==================
+Forestry Timesheet
+==================
 
-Base module of the forestry vertical integration apps.
+Extend timesheet app for forestry.
 
 For a detailed documentation have a look at https://www.odoo-wiki.org/.
 
