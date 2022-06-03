@@ -7,10 +7,10 @@ class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'
 
     product_id = fields.Many2one('product.product', check_company=True)
-    category_id = fields.Many2one('product.category')
-    product_qty = fields.Float(string='Quantity')
-    product_stock_uom_category_id = fields.Many2one('uom.category', related='product_id.uom_id.category_id')
-    product_stock_uom_id = fields.Many2one('uom.uom', string='Unit of Measure', domain="[('category_id', '=', product_stock_uom_category_id)]")
+    category_id = fields.Many2one('product.category', string='Product Category')
+    product_qty = fields.Float(string='Product Quantity')
+    product_stock_uom_category_id = fields.Many2one('uom.category', string='Stock Category', related='product_id.uom_id.category_id')
+    product_stock_uom_id = fields.Many2one('uom.uom', string='Stock Unit of Measure', domain="[('category_id', '=', product_stock_uom_category_id)]")
     location_id = fields.Many2one('stock.location', 'Source Location', check_company=True)
     location_dest_id = fields.Many2one('stock.location', 'Destination Location', check_company=True)
     trips = fields.Integer()

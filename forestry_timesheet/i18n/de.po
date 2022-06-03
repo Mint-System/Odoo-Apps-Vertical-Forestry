@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-03 10:05+0000\n"
-"PO-Revision-Date: 2022-06-03 10:05+0000\n"
+"POT-Creation-Date: 2022-06-03 11:28+0000\n"
+"PO-Revision-Date: 2022-06-03 11:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,14 +19,6 @@ msgstr ""
 #: model:ir.model,name:forestry_timesheet.model_account_analytic_line
 msgid "Analytic Line"
 msgstr "Kostenstellen-Buchungen"
-
-#. module: forestry_timesheet
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_id
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_id
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_category_id
-msgid "Category"
-msgstr "Sortiment"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__company_id
@@ -59,10 +51,21 @@ msgid "Product"
 msgstr "Produkt"
 
 #. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_id
+msgid "Product Category"
+msgstr "Sortiment"
+
+#. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_qty
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_qty
-msgid "Quantity"
+msgid "Product Quantity"
 msgstr "Menge"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.project_task_create_timesheet_view_form
+msgid "Save"
+msgstr "Speichern"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__location_id
@@ -71,13 +74,19 @@ msgid "Source Location"
 msgstr "Quellort"
 
 #. module: forestry_timesheet
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__trips
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__trips
-msgid "Trips"
-msgstr "Fahrten"
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_category_id
+msgid "Stock Category"
+msgstr ""
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_id
-msgid "Unit of Measure"
+msgid "Stock Unit of Measure"
 msgstr "Mengeneinheit"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__trips
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__trips
+msgid "Trips"
+msgstr "Fahrten"

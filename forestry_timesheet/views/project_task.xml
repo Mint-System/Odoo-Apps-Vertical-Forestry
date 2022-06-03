@@ -45,7 +45,12 @@
                     <field name="location_dest_id"/>
                     <field name="trips"/>
                 </group>
-            </field>                
+            </field>
+
+            <button name="save_timesheet" position="replace">
+                <button string="Save" type="object" name="button_save_timesheet" class="btn btn-primary" data-hotkey="q"/>
+            </button>
+
         </field>
     </record>
 
