@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="hr_timesheet_line_tree" model="ir.ui.view">
+        <field name="name">forestry_timesheet.hr_timesheet_line_tree</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="product_id" optional="show"/>
+                <field name="category_id" optional="show"/>
+                <field name="product_qty" optional="show"/>
+                <field name="product_stock_uom_id" optional="show"/>
+                <field name="product_stock_uom_category_id" invisible="1"/>
+                <field name="location_id" optional="show"/>
+                <field name="location_dest_id" optional="show"/>
+                <field name="trips" optional="show"/>
+            </xpath>
+
+            <field name="date" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="employee_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+        </field>
+    </record>
+    
+</odoo>

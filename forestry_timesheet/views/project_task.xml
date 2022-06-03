@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_task_form2_inherited" model="ir.ui.view">
+        <field name="name">forestry_timesheet.view_task_form2_inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
+        <field name="arch" type="xml">
+        
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="product_id" optional="show"/>
+                <field name="category_id" optional="show"/>
+                <field name="product_qty" optional="show"/>
+                <field name="product_stock_uom_id" optional="show"/>
+                <field name="product_stock_uom_category_id" invisible="1"/>
+                <field name="location_id" optional="show"/>
+                <field name="location_dest_id" optional="show"/>
+                <field name="trips" optional="show"/>
+            </xpath>
+
+            <field name="date" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="employee_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+        </field>
+    </record>
+
+    <record id="project_task_create_timesheet_view_form" model="ir.ui.view">
+        <field name="name">forestry_timesheet.project_task_create_timesheet_view_form</field>
+        <field name="model">project.task.create.timesheet</field>
+        <field name="inherit_id" ref="hr_timesheet.project_task_create_timesheet_view_form" />
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <group>
+                    <field name="product_id"/>
+                    <field name="category_id"/>
+                    <field name="product_qty"/>
+                    <field name="product_stock_uom_id"/>
+                    <field name="product_stock_uom_category_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                    <field name="trips"/>
+                </group>
+            </field>                
+        </field>
+    </record>
+
+</odoo>
