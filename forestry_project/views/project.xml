@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <field name="label_tasks" position="before">
                 <field name="order_type"/>
+                <field name="work_type"  attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
             </field>
         </field>
     </record>
@@ -19,6 +20,7 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="order_type"/>
+                <field name="work_type"  attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
                 <field name="company_id" invisible="1"/>
                 <field name="partner_id"/>
             </field>
@@ -40,6 +42,21 @@
         </field>
     </record>
 
+    <record id="view_task_kanban" model="ir.ui.view">
+        <field name="name">forestry_project.view_task_kanban</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="/kanban/field[@name='user_ids']" position="after">
+                <field name="order_type"/>
+            </xpath>
+
+            <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="after">
+                <br/><span><t t-esc="record.order_type.value"/></span>
+            </xpath>
+        </field>
+    </record>
+    
     <record id="action_view_all_task2" model="ir.actions.act_window">
         <field name="name">All Tasks</field>
         <field name="res_model">project.task</field>

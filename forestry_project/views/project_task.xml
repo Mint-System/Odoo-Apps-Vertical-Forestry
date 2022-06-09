@@ -7,10 +7,19 @@
         <field name="arch" type="xml">
             <xpath expr="//sheet[1]/group[1]/group[2]" position="after">
                 <group>
-                    <!-- <field name="product_id"/> -->
+                    <field name="order_type" invisible="1"/>
+                    <field name="product_id" attrs="{'invisible': [('order_type', 'not in', ('chopping', 'pile'))]}"/>
                     <field name="location_id"/>
                     <field name="location_dest_id"/>
+                    <field name="location_link" widget="url" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
+                    <div attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
+                    <a href="https://map.geo.admin.ch" target="_new" attrs="{'invisible': ['|',('location_link', '!=', False),('order_type', 'not in', ('collection'))]}">
+                    <i class="fa fa-fw fa-arrow-right"/>
+                    Add url from Swisstopo.
+                    </a>
+                    <field name="distance" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
                     <field name="vehicle_id"/>
+                    <field name="trailer"/>
                 </group>
             </xpath>
         </field>

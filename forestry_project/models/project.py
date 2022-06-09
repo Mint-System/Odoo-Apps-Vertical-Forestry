@@ -13,6 +13,12 @@ class Project(models.Model):
         default='pile',
         required=True
     )
+    work_type = fields.Selection(selection=[
+        ("crane", "Crane Work"),
+        ("transport", "Transport")],
+        default='transport',
+        required=True
+    )
 
     @api.onchange("order_type")
     def _onchange_order_type(self):
@@ -30,4 +36,5 @@ class Project(models.Model):
             'planned_date_begin': datetime.now(),
             'planned_date_end': datetime.now() + timedelta(minutes=30),
         })
+        project._onchange_order_type()
         return project

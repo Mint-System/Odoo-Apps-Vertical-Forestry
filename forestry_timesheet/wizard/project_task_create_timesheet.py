@@ -15,6 +15,7 @@ class ProjectTaskCreateTimesheet(models.TransientModel):
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True, default=lambda self: self.env.company)
     location_id = fields.Many2one('stock.location', 'Source Location', check_company=True)
     location_dest_id = fields.Many2one('stock.location', 'Destination Location', check_company=True)
+    carrier_id = fields.Many2one('res.partner', 'Carrier', check_company=True)
     trips = fields.Integer()
 
     @api.onchange('product_id')
@@ -40,6 +41,7 @@ class ProjectTaskCreateTimesheet(models.TransientModel):
             'product_stock_uom_id': self.product_stock_uom_id.id,
             'location_id': self.location_id.id,
             'location_dest_id': self.location_dest_id.id,
+            'carrier_id': self.carrier_id.id,
             'trips': self.trips,
         }
         self.task_id.user_timer_id.unlink()

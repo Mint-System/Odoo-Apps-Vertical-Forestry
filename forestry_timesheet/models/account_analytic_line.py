@@ -13,6 +13,7 @@ class AccountAnalyticLine(models.Model):
     product_stock_uom_id = fields.Many2one('uom.uom', string='Stock Unit of Measure', domain="[('category_id', '=', product_stock_uom_category_id)]")
     location_id = fields.Many2one('stock.location', 'Source Location', check_company=True)
     location_dest_id = fields.Many2one('stock.location', 'Destination Location', check_company=True)
+    carrier_id = fields.Many2one('res.partner', 'Carrier', check_company=True)
     trips = fields.Integer()
 
     @api.onchange('product_id')
