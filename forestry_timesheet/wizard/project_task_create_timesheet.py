@@ -7,6 +7,8 @@ from datetime import datetime
 class ProjectTaskCreateTimesheet(models.TransientModel):
     _inherit = 'project.task.create.timesheet'
 
+    order_type = fields.Selection(related='task_id.order_type', readonly=True)
+
     product_id = fields.Many2one('product.product', check_company=True)
     category_id = fields.Many2one('product.category', string='Product Category')
     product_qty = fields.Float(string='Product Quantity')

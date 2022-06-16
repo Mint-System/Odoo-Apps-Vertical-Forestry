@@ -8,20 +8,23 @@
         <field name="arch" type="xml">
 
             <xpath expr="//tree/field[@name='name']" position="after">
-                <field name="product_id" optional="show"/>
-                <field name="category_id" optional="show"/>
-                <field name="product_qty" optional="show"/>
-                <field name="product_stock_uom_id" optional="show"/>
+                <field name="validated" invisible="1"/>
+                <field name="order_type" invisible="1"/>
+                <field name="product_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="category_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="product_qty" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="product_stock_uom_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="product_stock_uom_category_id" invisible="1"/>
-                <field name="location_id" optional="show"/>
-                <field name="location_dest_id" optional="show"/>
-                <field name="carrier_id" optional="show"/>
-                <field name="trips" optional="show"/>
+                <field name="location_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="location_dest_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="carrier_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True), ('order_type', 'not in', ('chopping'))]}"/>
+                <field name="trips" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
             </xpath>
 
             <field name="date" position="attributes">
                 <attribute name="optional">show</attribute>
             </field>
+
             <field name="employee_id" position="attributes">
                 <attribute name="optional">show</attribute>
             </field>
