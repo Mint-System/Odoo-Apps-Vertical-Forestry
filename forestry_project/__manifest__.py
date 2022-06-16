@@ -6,7 +6,7 @@
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Administration",
-    "version": "15.0.1.3.0",
+    "version": "15.0.1.4.0",
     "license": "OPL-1",
     "depends": [
         "forestry_base",

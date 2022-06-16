@@ -60,7 +60,7 @@
     <record id="action_view_all_task2" model="ir.actions.act_window">
         <field name="name">All Tasks</field>
         <field name="res_model">project.task</field>
-        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,gantt,activity,map</field>
+        <field name="view_mode">gantt,kanban,tree,form,calendar,pivot,graph,activity,map</field>
         <field name="context">{'all_task': 1}</field>
         <field name="search_view_id" ref="project.view_task_search_form_extended"/>
     </record>

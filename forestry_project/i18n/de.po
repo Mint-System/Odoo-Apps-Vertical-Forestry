@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-09 15:04+0000\n"
-"PO-Revision-Date: 2022-06-09 15:04+0000\n"
+"POT-Creation-Date: 2022-06-16 13:32+0000\n"
+"PO-Revision-Date: 2022-06-16 13:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,11 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-fw fa-arrow-right\"/>\n"
 "                    Link von Swisstopo hinzufügen."
+
+#. module: forestry_project
+#: model_terms:ir.ui.view,arch_db:forestry_project.project_task_view_gantt
+msgid "<strong>Deadline — </strong>"
+msgstr "<strong>Frist — </strong>"
 
 #. module: forestry_project
 #: model:ir.actions.act_window,name:forestry_project.action_view_all_task2
@@ -43,7 +48,7 @@ msgstr "Regieauftrag"
 #. module: forestry_project
 #: model:ir.model.fields.selection,name:forestry_project.selection__project_project__work_type__crane
 msgid "Crane Work"
-msgstr "Kranarbeit"
+msgstr "KRanarbeit"
 
 #. module: forestry_project
 #: model:ir.model.fields,field_description:forestry_project.field_project_task__location_dest_id
