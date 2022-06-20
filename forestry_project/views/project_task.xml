@@ -6,12 +6,13 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
+            
             <xpath expr="//sheet[1]/group[1]/group[2]" position="after">
                 <group>
                     <field name="order_type" invisible="1"/>
-                    <field name="product_id" attrs="{'invisible': [('order_type', 'not in', ('chopping', 'pile'))]}"/>
-                    <field name="location_id"/>
-                    <field name="location_dest_id"/>
+                    <field name="product_id" attrs="{'invisible': [('order_type', 'in', ('chopping'))]}"/>
+                    <field name="location_id" attrs="{'invisible': [('order_type', 'in', ('chopping'))]}"/>
+                    <field name="location_dest_id" attrs="{'invisible': [('order_type', 'in', ('chopping'))]}"/>
                     <field name="location_link" widget="url" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
                     <div attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
                     <a href="https://map.geo.admin.ch" target="_new" attrs="{'invisible': ['|',('location_link', '!=', False),('order_type', 'not in', ('collection'))]}">
@@ -23,7 +24,9 @@
                     <field name="trailer"/>
                 </group>
             </xpath>
+
         </field>
+        
     </record>
 
     <record id="view_task_tree2" model="ir.ui.view">
