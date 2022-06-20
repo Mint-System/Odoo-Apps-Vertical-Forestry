@@ -77,7 +77,7 @@ msgstr "Speichern"
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__location_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__location_id
 msgid "Source Location"
-msgstr "Quellort"
+msgstr "Abgangsort"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
