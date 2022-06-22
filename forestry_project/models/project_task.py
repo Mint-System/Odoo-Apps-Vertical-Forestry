@@ -19,15 +19,21 @@ class ProjectTask(models.Model):
 
     @api.onchange('location_id')
     def _onchange_location_id(self):
-        for project in self:
-            if not project.location_link :
-                project.location_link = project.location_id.location_link
+        for task in self:
+            if not task.location_link :
+                task.location_link = task.location_id.location_link
 
     @api.onchange('location_dest_id')
     def _onchange_location_dest_id(self):
-        for project in self:
-            if not project.location_dest_link :
-                project.location_dest_link = project.location_dest_id.location_link
+        for task in self:
+            if not task.location_dest_link :
+                task.location_dest_link = task.location_dest_id.location_link
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        for task in self:
+            if not task.location_id :
+                task.location_id = task.product_id.location_partner_id
 
     @api.model_create_multi
     def create(self, vals_list):
