@@ -15,8 +15,8 @@ class ProjectTaskCreateTimesheet(models.TransientModel):
     product_stock_uom_category_id = fields.Many2one('uom.category', string='Stock Category', related='product_id.uom_id.category_id')
     product_stock_uom_id = fields.Many2one('uom.uom', string='Stock Unit of Measure', domain="[('category_id', '=', product_stock_uom_category_id)]")
     company_id = fields.Many2one('res.company', string='Company', required=True, readonly=True, default=lambda self: self.env.company)
-    location_id = fields.Many2one('stock.location', 'Source Location', check_company=True)
-    location_dest_id = fields.Many2one('stock.location', 'Destination Location', check_company=True)
+    location_id = fields.Many2one('res.partner', 'Source Location')
+    location_dest_id = fields.Many2one('res.partner', 'Destination Location')
     carrier_id = fields.Many2one('res.partner', 'Carrier', check_company=True)
     trips = fields.Integer()
 
@@ -24,9 +24,11 @@ class ProjectTaskCreateTimesheet(models.TransientModel):
     def onchange_product(self):
         self.category_id = self.product_id.categ_id
         self.product_stock_uom_id = self.product_id.uom_id
-        quant = self.env['stock.quant'].search([('product_id', '=', self.product_id.id)], limit=1)
-        if quant:
-            self.location_id = quant.location_id
+        self.location_id = self.task_id.location_id
+        self.location_dest_id = self.task_id.location_dest_id
+        # quant = self.env['stock.quant'].search([('product_id', '=', self.product_id.id)], limit=1)
+        # if quant:
+        #     self.location_id = quant.location_id
 
     def button_save_timesheet(self):
         """Relace save_timesheet method."""
