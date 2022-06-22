@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 13:32+0000\n"
-"PO-Revision-Date: 2022-06-16 13:32+0000\n"
+"POT-Creation-Date: 2022-06-22 13:32+0000\n"
+"PO-Revision-Date: 2022-06-22 13:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,10 +19,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:forestry_project.view_task_form2
 msgid ""
 "<i class=\"fa fa-fw fa-arrow-right\"/>\n"
-"                    Add url from Swisstopo."
+"                        Open map.geo.admin.ch"
 msgstr ""
-"<i class=\"fa fa-fw fa-arrow-right\"/>\n"
-"                    Link von Swisstopo hinzufügen."
 
 #. module: forestry_project
 #: model_terms:ir.ui.view,arch_db:forestry_project.project_task_view_gantt
@@ -48,7 +46,7 @@ msgstr "Regieauftrag"
 #. module: forestry_project
 #: model:ir.model.fields.selection,name:forestry_project.selection__project_project__work_type__crane
 msgid "Crane Work"
-msgstr "KRanarbeit"
+msgstr "Kranarbeit"
 
 #. module: forestry_project
 #: model:ir.model.fields,field_description:forestry_project.field_project_task__location_dest_id
@@ -56,14 +54,14 @@ msgid "Destination Location"
 msgstr "Zielort"
 
 #. module: forestry_project
-#: model:ir.model.fields,field_description:forestry_project.field_project_task__location_link
-msgid "Destination Location Details"
-msgstr "Zielort Details"
+#: model:ir.model.fields,field_description:forestry_project.field_project_task__location_dest_link
+msgid "Destination Location Link"
+msgstr "Zielort-Link"
 
 #. module: forestry_project
-#: model:ir.model.fields,field_description:forestry_project.field_project_task__distance
-msgid "Distance"
-msgstr "Km"
+#: model_terms:ir.ui.view,arch_db:forestry_project.view_task_form2
+msgid "Insert link here"
+msgstr "Link hier einfügen"
 
 #. module: forestry_project
 #: model:ir.model.fields,field_description:forestry_project.field_project_project__order_type
@@ -90,6 +88,11 @@ msgstr "Projekt"
 #: model:ir.model.fields,field_description:forestry_project.field_project_task__location_id
 msgid "Source Location"
 msgstr "Abgangsort"
+
+#. module: forestry_project
+#: model:ir.model.fields,field_description:forestry_project.field_project_task__location_link
+msgid "Source Location Link"
+msgstr "Abgangsort-Link"
 
 #. module: forestry_project
 #: model:ir.model,name:forestry_project.model_project_task

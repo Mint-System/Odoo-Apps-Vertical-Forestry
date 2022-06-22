@@ -9,14 +9,25 @@ class ProjectTask(models.Model):
     _inherit = "project.task"
 
     order_type = fields.Selection(related='project_id.order_type', readonly=True)
-
     product_id = fields.Many2one('product.product', check_company=True)
     location_id = fields.Many2one('res.partner', 'Source Location', check_company=True)
+    location_link = fields.Char('Source Location Link')
     location_dest_id = fields.Many2one('res.partner', 'Destination Location', check_company=True)
-    distance = fields.Integer()
-    location_link = fields.Char('Destination Location Details')
-    vehicle_id = fields.Many2one('fleet.vehicle', check_company=True)
+    location_dest_link = fields.Char('Destination Location Link')
+    vehicle_id = fields.Many2one('fleet.vehicle', check_company=True, tracking=True)
     trailer = fields.Boolean()
+
+    @api.onchange('location_id')
+    def _onchange_location_id(self):
+        for project in self:
+            if not project.location_link :
+                project.location_link = project.location_id.location_link
+
+    @api.onchange('location_dest_id')
+    def _onchange_location_dest_id(self):
+        for project in self:
+            if not project.location_dest_link :
+                project.location_dest_link = project.location_dest_id.location_link
 
     @api.model_create_multi
     def create(self, vals_list):

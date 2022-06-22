@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <field name="label_tasks" position="before">
                 <field name="order_type"/>
-                <field name="work_type"  attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
+                <field name="work_type" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
             </field>
         </field>
     </record>
@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="order_type"/>
-                <field name="work_type"  attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
+                <field name="work_type" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
                 <field name="company_id" invisible="1"/>
                 <field name="partner_id"/>
             </field>
