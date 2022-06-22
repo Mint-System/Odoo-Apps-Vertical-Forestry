@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">forestry_base.view_partner_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='company_type']" position="after">
+                <field name="is_location"/><label for="is_location"/>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="before">
+                <label for="location_link" placeholder="Insert link here" attrs="{'invisible': [('is_location', '=', False)]}"/>
+                <div attrs="{'invisible': [('is_location', '=', False)]}">
+                    <field name="location_link" widget="url"/>
+                    <a href="https://map.geo.admin.ch" target="_new" attrs="{'invisible': [('location_link', '!=', False)]}">
+                    <i class="fa fa-fw fa-arrow-right"/>
+                    Open map.geo.admin.ch
+                    </a>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

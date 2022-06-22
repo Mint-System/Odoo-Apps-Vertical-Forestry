@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* forestry_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-22 13:13+0000\n"
+"PO-Revision-Date: 2022-06-22 13:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: forestry_base
+#: model_terms:ir.ui.view,arch_db:forestry_base.product_template_form_view
+msgid ""
+"<i class=\"fa fa-fw fa-arrow-right\"/>\n"
+"                        Open map.geo.admin.ch"
+msgstr ""
+"<i class=\"fa fa-fw fa-arrow-right\"/>\n"
+"                        map.geo.admin.ch öffnen"
+
+#. module: forestry_base
+#: model_terms:ir.ui.view,arch_db:forestry_base.view_partner_form
+msgid ""
+"<i class=\"fa fa-fw fa-arrow-right\"/>\n"
+"                    Open map.geo.admin.ch"
+msgstr ""
+"<i class=\"fa fa-fw fa-arrow-right\"/>\n"
+"                    map.geo.admin.ch öffnen"
+
+#. module: forestry_base
+#: model:ir.model,name:forestry_base.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: forestry_base
+#: model_terms:ir.ui.view,arch_db:forestry_base.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:forestry_base.view_partner_form
+msgid "Insert link here"
+msgstr "Link hier einfügen"
+
+#. module: forestry_base
+#: model:ir.model.fields,field_description:forestry_base.field_res_partner__is_location
+#: model:ir.model.fields,field_description:forestry_base.field_res_users__is_location
+msgid "Location"
+msgstr "Ort"
+
+#. module: forestry_base
+#: model:ir.model.fields,field_description:forestry_base.field_product_product__location_link
+#: model:ir.model.fields,field_description:forestry_base.field_product_template__location_link
+#: model:ir.model.fields,field_description:forestry_base.field_res_partner__location_link
+#: model:ir.model.fields,field_description:forestry_base.field_res_users__location_link
+msgid "Location Link"
+msgstr "Lagerort-Link"
+
+#. module: forestry_base
+#: model:ir.model.fields,field_description:forestry_base.field_product_product__location_partner_id
+#: model:ir.model.fields,field_description:forestry_base.field_product_template__location_partner_id
+msgid "Location Partner"
+msgstr "Lagerort"
+
+#. module: forestry_base
+#: model:ir.model,name:forestry_base.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: forestry_base
+#: model:ir.model.fields,field_description:forestry_base.field_product_product__supplier_id
+#: model:ir.model.fields,field_description:forestry_base.field_product_template__supplier_id
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: forestry_base
+#: model:ir.model.fields,field_description:forestry_base.field_product_product__supplier_code
+#: model:ir.model.fields,field_description:forestry_base.field_product_template__supplier_code
+msgid "Supplier Reference"
+msgstr "Lieferantenreferenz"
