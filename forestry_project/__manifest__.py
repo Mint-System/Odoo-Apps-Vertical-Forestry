@@ -15,7 +15,11 @@
         "project_task_default_stage",
         "project_template",
     ],
-    "data": ["views/project_task.xml", "views/project.xml"],
+    "data": [
+        "data/project_sequence.xml",
+        "views/project_task.xml",
+        "views/project.xml",
+    ],
     "installable": True,
     "application": False,
     "auto_install": False,
