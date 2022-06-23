@@ -8,7 +8,8 @@
         <field name="arch" type="xml">
         
             <xpath expr="//tree/field[@name='name']" position="after">
-                <field name="validated" invisible="1"/>
+                <field name="validated" optional="hide"/>
+                <field name="order_type" optional="hide"/>
                 <field name="product_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="category_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="product_qty" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
@@ -16,7 +17,6 @@
                 <field name="product_stock_uom_category_id" invisible="1"/>
                 <field name="location_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="location_dest_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="order_type" invisible="1"/>
                 <field name="carrier_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('order_type', 'not in', ('chopping'))]}"/>
                 <field name="trips" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
             </xpath>

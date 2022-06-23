@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
 
             <xpath expr="//tree/field[@name='name']" position="after">
-                <field name="validated" invisible="1"/>
-                <field name="order_type" invisible="1"/>
+                <field name="validated" optional="hide"/>
+                <field name="order_type" optional="hide"/>
                 <field name="product_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="category_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
                 <field name="product_qty" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>

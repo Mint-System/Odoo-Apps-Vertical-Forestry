@@ -56,7 +56,7 @@ msgstr "Ort"
 #: model:ir.model.fields,field_description:forestry_base.field_res_partner__location_link
 #: model:ir.model.fields,field_description:forestry_base.field_res_users__location_link
 msgid "Location Link"
-msgstr "Lagerort-Link"
+msgstr "Ort-Link"
 
 #. module: forestry_base
 #: model:ir.model.fields,field_description:forestry_base.field_product_product__location_partner_id

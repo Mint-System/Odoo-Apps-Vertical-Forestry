@@ -16,4 +16,5 @@ git clone git@github.com:mint-system/odoo-apps-vertical-forestry.git ./addons/ve
 | --- | --- |
 | [forestry_base](forestry_base) |         Base module of the forestry vertical integration apps. |
 | [forestry_project](forestry_project) |         Extend project app for forestry. |
+| [forestry_stock](forestry_stock) |         Extend timesheet app for stock. |
 | [forestry_timesheet](forestry_timesheet) |         Extend timesheet app for forestry. |

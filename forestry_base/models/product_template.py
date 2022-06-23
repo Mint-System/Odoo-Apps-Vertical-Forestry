@@ -7,7 +7,7 @@ class ProductTemplate(models.Model):
     supplier_id = fields.Many2one('res.partner', check_company=True)
     supplier_code = fields.Char('Supplier Reference')
     location_partner_id = fields.Many2one('res.partner', check_company=True)
-    location_link = fields.Char()
+    location_link = fields.Char(related='location_partner_id.location_link', readonly=False)
 
     @api.onchange('location_partner_id')
     def _onchange_location_partner_id(self):
