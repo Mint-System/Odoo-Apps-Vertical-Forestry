@@ -60,7 +60,7 @@
         <field name="arch" type="xml">
 
             <field name="description" position="after">
-                <group>
+                <group attrs="{'invisible': [('order_type', '=', 'default')]}">
                     <field name="product_id"/>
                     <field name="category_id"/>
                     <field name="product_qty"/>
