@@ -6,14 +6,14 @@
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Administration",
-    "version": "15.0.1.5.0",
+    "version": "15.0.2.0.0",
     "license": "OPL-1",
     "depends": [
         "forestry_base",
         "hr_fleet",
         "project_enterprise",
         "project_task_default_stage",
-        "project_template",
+        "project_template"
     ],
     "data": [
         "data/project_sequence.xml",
@@ -24,4 +24,6 @@
     "application": False,
     "auto_install": False,
     "images": ["images/screen.png"],
+    "pre_init_hook": "pre_init_hook",
+    "post_init_hook": "post_init_hook",
 }

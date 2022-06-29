@@ -6,9 +6,28 @@ import pytz
 
 
 class ProjectTask(models.Model):
-    _inherit = "project.task"
+    _inherit = 'project.task'
 
-    order_type = fields.Selection(related='project_id.order_type', readonly=True)
+    order_type = fields.Selection(selection=[
+        ('default', 'Default'),
+        ('pile', 'Pile Order'),
+        ('collection', 'Collection Order'),
+        ('chopping', 'Chopping Order')],
+        default='default',
+        required=True
+    )
+    work_type = fields.Selection(selection=[
+        ('crane', 'Crane Work'),
+        ('transport', 'Transport')],
+        default='transport',
+        required=True
+    )
+    code = fields.Char(
+        string='Task Code',
+        required=True,
+        default='/',
+        copy=False,
+    )
     product_id = fields.Many2one('product.product', check_company=True)
     location_id = fields.Many2one('res.partner', 'Source Location', check_company=True)
     location_link = fields.Char('Source Location Link', related='location_id.location_link', readonly=False)
@@ -17,17 +36,16 @@ class ProjectTask(models.Model):
     vehicle_id = fields.Many2one('fleet.vehicle', check_company=True, tracking=True)
     trailer = fields.Boolean()
 
-    # @api.onchange('location_id')
-    # def _onchange_location_id(self):
-    #     for task in self:
-    #         if not task.location_link :
-    #             task.location_link = task.location_id.location_link
+    _sql_constraints = [
+        ('project_task_unique_code', 'UNIQUE (code)', _('The code must be unique!')),
+    ]
 
-    # @api.onchange('location_dest_id')
-    # def _onchange_location_dest_id(self):
-    #     for task in self:
-    #         if not task.location_dest_link :
-    #             task.location_dest_link = task.location_dest_id.location_link
+    def name_get(self):
+        """Set task display name."""
+        res = []
+        for record in self:
+            res.append((record.id, '[%s] %s' % (record.code, record.name)))
+        return res
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
@@ -37,6 +55,18 @@ class ProjectTask(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        """
+        Set default values.
+        Generate task code.
+        Set default planned date
+        """
+        for vals in vals_list:
+            project_id = vals.get('project_id') or self.env.context.get('default_project_id')
+            project_id = self.env['project.project'].browse(project_id)
+            if project_id and 'order_type' not in vals:
+                vals['order_type'] = project_id.order_type
+            if vals.get('code', '/') == '/':
+                vals['code'] = self.env['ir.sequence'].next_by_code('project.project')
         tasks = super().create(vals_list)
 
         # Get today with zeroed time

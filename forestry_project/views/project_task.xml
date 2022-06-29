@@ -7,8 +7,14 @@
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
             
+            <field name="user_ids" position="before">
+                <field name="code"/>
+                <field name="order_type"/>
+                <field name="work_type" attrs="{'invisible': [('order_type', 'not in', ('collection'))]}"/>
+            </field>
+
             <xpath expr="//sheet[1]/group[1]/group[2]" position="after">
-                <group>
+                <group attrs="{'invisible': [('order_type', '=', 'default')]}">
                     <field name="order_type" invisible="1"/>
                     <!-- attrs="{'invisible': [('order_type', 'in', ('chopping'))]}" -->
                     <field name="product_id"/>
@@ -44,6 +50,10 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_tree2" />
         <field name="arch" type="xml">
+
+            <field name="name" position="before">
+                <field name="code" />
+            </field>
 
             <field name="date_deadline" position="after">
                 <field name="planned_date_begin" optional="hide"/>
