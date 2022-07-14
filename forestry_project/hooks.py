@@ -20,24 +20,18 @@ def post_init_hook(cr, registry):
     corresponding sequence code.
     """
     env = api.Environment(cr, SUPERUSER_ID, dict())
-    sequence_obj = env['ir.sequence']
+    sequence_obj = env["ir.sequence"]
 
-    projects = env['project.project'].search([], order='id')
+    projects = env["project.project"].search([], order="id")
     for project_id in projects.ids:
         cr.execute(
             "UPDATE project_project SET code = %s WHERE id = %s;",
-            (
-                sequence_obj.next_by_code('project.project'),
-                project_id,
-            ),
+            (sequence_obj.next_by_code("project.project"), project_id,),
         )
 
-    tasks = env['project.task'].search([], order='id')
+    tasks = env["project.task"].search([], order="id")
     for task_id in tasks.ids:
         cr.execute(
             "UPDATE project_task SET code = %s WHERE id = %s;",
-            (
-                sequence_obj.next_by_code('project.project'),
-                task_id,
-            ),
+            (sequence_obj.next_by_code("project.project"), task_id,),
         )

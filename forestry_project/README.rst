@@ -10,7 +10,7 @@ Extend project app for forestry.
 
 For a detailed documentation have a look at https://www.odoo-wiki.org/.
 
-.. image:: https://raw.githubusercontent.com/Mint-System/Wiki/master/assets/icon-box.png
+.. image:: https://raw.githubusercontent.com/Mint-System/Odoo-Apps-Vertical-Forestry/15.0/forestry_base/static/description/icon.png
   :height: 100
   :width: 100
   :alt: Icon
