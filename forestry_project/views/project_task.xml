@@ -41,8 +41,7 @@
                 </group>
             </xpath>
 
-        </field>
-        
+        </field>        
     </record>
 
     <record id="view_task_tree2" model="ir.ui.view">
@@ -67,6 +66,10 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project_enterprise.project_task_view_gantt" />
         <field name="arch" type="xml">
+
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="color">color</attribute>
+            </xpath>
 
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="date_deadline"/>

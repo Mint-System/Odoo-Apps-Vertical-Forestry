@@ -36,6 +36,16 @@ class ProjectTask(models.Model):
     vehicle_id = fields.Many2one('fleet.vehicle', check_company=True, tracking=True)
     trailer = fields.Boolean()
 
+    color = fields.Integer(compute="_compute_color")
+
+    @api.depends('tag_ids')
+    def _compute_color(self):
+        for rec in self:
+            if rec.tag_ids:
+                rec.color = rec.tag_ids[0].color
+            else:
+                rec.color = 0
+
     _sql_constraints = [
         ('project_task_unique_code', 'UNIQUE (code)', _('The code must be unique!')),
     ]

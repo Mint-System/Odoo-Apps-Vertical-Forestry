@@ -13,7 +13,6 @@
         "hr_fleet",
         "project_enterprise",
         "project_task_default_stage",
-        "project_template",
     ],
     "data": [
         "data/project_sequence.xml",
