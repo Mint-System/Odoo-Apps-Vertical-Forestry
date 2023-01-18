@@ -88,9 +88,11 @@ class ProjectTask(models.Model):
         # Set hour and reset timezone info
         date_begin = date_begin.replace(hour=8).astimezone(pytz.utc).replace(tzinfo=None)
 
-        for task in tasks.filtered('order_type'):
+        for task in tasks.filtered(lambda t: t.order_type and not t.planned_date_begin):
+
             task.write({
                 'planned_date_begin': date_begin,
                 'planned_date_end': date_begin + timedelta(hours=4),
             })
+                
         return tasks
