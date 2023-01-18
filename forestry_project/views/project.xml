@@ -92,4 +92,11 @@
     <menuitem name="All Tasks" id="menu_project_management_all" parent="project.menu_main_pm"
         action="action_view_all_task2" sequence="3" groups="base.group_no_one,project.group_project_user"/>
 
+    <record id="project_enterprise.project_task_kanban_action_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="20"/>
+    </record>
+
+    <record id="project_enterprise.project_task_tree_action_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+    </record>
 </odoo>
