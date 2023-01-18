@@ -8,7 +8,7 @@
     "category": "Administration",
     "version": "15.0.1.1.0",
     "license": "OPL-1",
-    "depends": ["forestry_timesheet", "product_name_sequence"],
+    "depends": ["forestry_timesheet"],
     "data": ["views/hr_timesheet.xml", "views/stock.xml"],
     "installable": True,
     "application": False,
