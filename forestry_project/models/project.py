@@ -69,24 +69,22 @@ class Project(models.Model):
         project = super(Project, self).create(vals)
         project._onchange_order_type()
 
-        # Get today with zeroed time
-        date_begin = datetime.combine(fields.Date.context_today(self), time(0, 0, 0))
-        # Get user timezone
-        user_tz = pytz.timezone(self.env.context.get('tz') or 'UTC')
-        # Localize start date
-        date_begin = pytz.utc.localize(date_begin).astimezone(user_tz)
-        # Set hour and reset timezone info
-        date_begin = date_begin.replace(hour=8).astimezone(pytz.utc).replace(tzinfo=None)
+        # # Get today with zeroed time
+        # date_begin = datetime.combine(fields.Date.context_today(self), time(0, 0, 0))
+        # # Get user timezone
+        # user_tz = pytz.timezone(self.env.context.get('tz') or 'UTC')
+        # # Localize start date
+        # date_begin = pytz.utc.localize(date_begin).astimezone(user_tz)
+        # # Set hour and reset timezone info
+        # date_begin = date_begin.replace(hour=8).astimezone(pytz.utc).replace(tzinfo=None)
 
-        _logger.warning([project.code])
-
-        task = self.env['project.task'].create({
-            'name': project.name,
-            'code': project.code,
-            'order_type': project.order_type,
-            'work_type': project.work_type,
-            'project_id': project.id,
-            'planned_date_begin': date_begin,
-            'planned_date_end': date_begin + timedelta(hours=4),
-        })
+        # task = self.env['project.task'].create({
+        #     'name': project.name,
+        #     'code': project.code,
+        #     'order_type': project.order_type,
+        #     'work_type': project.work_type,
+        #     'project_id': project.id,
+        #     'planned_date_begin': date_begin,
+        #     'planned_date_end': date_begin + timedelta(hours=4),
+        # })
         return project
