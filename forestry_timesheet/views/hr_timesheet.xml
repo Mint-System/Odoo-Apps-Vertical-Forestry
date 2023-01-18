@@ -31,5 +31,17 @@
 
         </field>
     </record>
-    
+
+    <record id="hr_timesheet.act_hr_timesheet_line_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+    </record>
+
+    <record id="hr_timesheet.timesheet_action_view_all_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+    </record>
+
+    <record id="timesheet_grid.timesheet_grid_to_validate_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,grid</field>
+    </record>
+
 </odoo>
