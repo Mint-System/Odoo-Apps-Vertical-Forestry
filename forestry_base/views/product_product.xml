@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="product_product_tree_view" model="ir.ui.view">
+        <field name="name">forestry_stock.product_product_tree_view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view" />
+        <field name="arch" type="xml">
+            <field name="default_code" position="after">
+                <field name="supplier_id" optional="show" />
+                <field name="location_partner_id" optional="show" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
