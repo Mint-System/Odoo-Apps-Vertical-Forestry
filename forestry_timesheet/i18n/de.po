@@ -6,14 +6,99 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-08 10:49+0000\n"
-"PO-Revision-Date: 2023-02-08 10:49+0000\n"
+"POT-Creation-Date: 2023-05-24 16:21+0000\n"
+"PO-Revision-Date: 2023-05-24 16:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid ""
+"<br/>\n"
+"                            <strong>Order Type: </strong>"
+msgstr "<br/>\n"
+"                            <strong>Auftragstyp: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid ""
+"<br/>\n"
+"                            <strong>Project: </strong>"
+msgstr ""
+"<br/>\n"
+"                            <strong>Projekt: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid ""
+"<br/>\n"
+"                            <strong>Target Location: </strong>"
+msgstr ""
+"<br/>\n"
+"                            <strong>Zielort: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid ""
+"<br/>\n"
+"                            <strong>Vehicle: </strong>"
+msgstr ""
+"<br/>\n"
+"                            <strong>Fahrzeug: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<br/> To:"
+msgstr "<br/> Bis:"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Date</span>"
+msgstr "<span>Datum</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Employee</span>"
+msgstr "<span>Mitarbeiter</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<span>Order: </span>"
+msgstr "<span>Auftrag: </span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Origin and Target Location</span>"
+msgstr "<span>Abgangs- und Zielort</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Product / Category</span>"
+msgstr "<span>Produkt / Kategorie</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Quantity</span>"
+msgstr "<span>Menge</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<span>Trips / Duration</span>"
+msgstr "<span>Distanz / Dauer</span>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Order Number: </strong>"
+msgstr "<strong>Auftragsnummer: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Origin Location: </strong>"
+msgstr "<strong>Abgangsort: </strong>"
 
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_account_analytic_line
@@ -45,10 +130,25 @@ msgid "Create Timesheet from task"
 msgstr "Erfasse Zeiten für Aufgaben"
 
 #. module: forestry_timesheet
+#: model:ir.actions.report,name:forestry_timesheet.deliveryslip_report_task
+msgid "Delivery Slip"
+msgstr "Lieferschein"
+
+#. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__location_dest_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__location_dest_id
 msgid "Destination Location"
 msgstr "Zielort"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "From:"
+msgstr "Von:"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "Km<br/>"
+msgstr ""
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__order_type

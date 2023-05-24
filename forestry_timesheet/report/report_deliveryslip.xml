@@ -80,9 +80,9 @@
 
                         <div class="oe_structure" />
 
-                        <h1 class="pt-5">
+                        <h2 class="pt-5">
                             <span>Order: </span><span t-field="doc.name" />
-                        </h1>
+                        </h2>
 
                         <p>
                             <strong>Order Number: </strong>
