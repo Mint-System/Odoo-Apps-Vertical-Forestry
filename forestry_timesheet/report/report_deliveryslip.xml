@@ -1,0 +1,131 @@
+<odoo>
+
+    <template id="forestry_timesheet.deliveryslip_table">
+        <div class="row" style="margin-top:10px;">
+            <div class="col-lg-12">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th class="align-middle">
+                                <span>Date</span>
+                            </th>
+                            <th class="align-middle">
+                                <span>Employee</span>
+                            </th>
+                            <th class="align-middle">
+                                <span>Product / Category</span>
+                            </th>
+                            <th class="align-middle">
+                                <span>Quantity</span>
+                            </th>
+                            <th class="align-middle">
+                                <span>Origin and Target Location</span>
+                            </th>
+                            <th class="align-middle text-right">
+                                <span>Trips / Duration</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="lines" t-as="line">
+                            <td>
+                                <span t-field="line.date" />
+                            </td>
+                            <td>
+                                <span t-field="line.user_id.partner_id.name" />
+                                <span t-if="not line.user_id.partner_id.name"
+                                    t-field="line.employee_id" />
+                            </td>
+                            <td>
+                                <span t-field="line.product_id" />
+                                <span t-if="line.product_id and line.category_id"> / </span>
+                                <span t-field="line.category_id" />
+                            </td>
+                            <td>
+                                <span t-field="line.product_qty" />
+                                <span t-field="line.product_stock_uom_id" />
+                            </td>
+                            <td> From: <span t-field="line.location_id" /><br /> To: <span
+                                    t-field="line.location_dest_id" />
+                            </td>
+                            <td class="text-right">
+                                <span t-field="line.trips" /> Km<br />
+                                <span t-if="is_uom_day"
+                                    t-esc="line._get_timesheet_time_day()"
+                                    t-options="{'widget': 'timesheet_uom'}" />
+                                <span t-else=""
+                                    t-field="line.unit_amount"
+                                    t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+
+    <!-- Project Task Delivery Slip Report -->
+    <template id="report_project_task_deliveryslip">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="doc">
+
+                    <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+                    <t t-set="address">
+                        <div t-field="doc.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                    </t>
+
+                    <div class="page">
+
+                        <div class="oe_structure" />
+
+                        <h1 class="pt-5">
+                            <span>Order: </span><span t-field="doc.name" />
+                        </h1>
+
+                        <p>
+                            <strong>Order Number: </strong>
+                            <span t-field="doc.code" />
+                            <br />
+                            <strong>Order Type: </strong>
+                            <span t-field="doc.order_type" />
+                            <br />
+                            <strong>Project: </strong>
+                            <span t-field="doc.project_id" />
+                            <br />
+                        </p>
+
+                        <p>
+                            <strong>Origin Location: </strong>
+                            <span t-field="doc.location_id" />
+                            <br />
+                            <strong>Target Location: </strong>
+                            <span t-field="doc.location_dest_id" />
+                            <br />
+                            <strong>Vehicle: </strong>
+                            <span t-field="doc.vehicle_id" />
+                            <br />
+                        </p>
+
+                        <t t-set='is_uom_day' t-value='doc.encode_uom_in_days' />
+                        <t t-set='lines' t-value='doc.timesheet_ids' />
+                        <t t-call="forestry_timesheet.deliveryslip_table" />
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="deliveryslip_report_task" model="ir.actions.report">
+        <field name="name">Delivery Slip</field>
+        <field name="model">project.task</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">forestry_timesheet.report_project_task_deliveryslip</field>
+        <field name="report_file">report_deliveryslip_task</field>
+        <field name="binding_model_id" ref="model_project_task" />
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

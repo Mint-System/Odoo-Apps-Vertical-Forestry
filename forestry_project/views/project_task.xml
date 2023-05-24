@@ -18,7 +18,7 @@
                     <field name="order_type" invisible="1"/>
                     <!-- attrs="{'invisible': [('order_type', 'in', ('chopping'))]}" -->
                     <field name="product_id"/>
-                    <field name="location_id" context="{'default_company_type': 'company', 'default_is_location': True}"/>
+                    <field name="location_id" context="{'default_company_type': 'company', 'default_company_type': 'location'}"/>
                     <label for="location_link" placeholder="Insert link here"/>
                     <div>
                         <field name="location_link" widget="url"/>
@@ -27,7 +27,7 @@
                         Open map.geo.admin.ch
                         </a>
                     </div>
-                    <field name="location_dest_id" context="{'default_company_type': 'company', 'default_is_location': True}"/>
+                    <field name="location_dest_id" context="{'default_company_type': 'company', 'default_company_type': 'location'}"/>
                     <label for="location_dest_link" placeholder="Insert link here"/>
                     <div>
                         <field name="location_dest_link" widget="url"/>

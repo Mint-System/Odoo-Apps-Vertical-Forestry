@@ -10,7 +10,7 @@
                 <group name="group_forestry">
                     <field name="supplier_id"/>
                     <field name="supplier_code"/>
-                    <field name="location_partner_id" context="{'default_company_type': 'company', 'default_is_location': True}"/>
+                    <field name="location_partner_id" context="{'default_company_type': 'company'}"/>
                     <label for="location_link" placeholder="Insert link here"/>
                     <div>
                         <field name="location_link" widget="url"/>
