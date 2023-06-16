@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 16:08+0000\n"
-"PO-Revision-Date: 2022-06-10 16:08+0000\n"
+"POT-Creation-Date: 2023-06-16 09:35+0000\n"
+"PO-Revision-Date: 2023-06-16 09:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgid "Analytic Line"
 msgstr "Kostenstellen-Buchungen"
 
 #. module: forestry_stock
+#: code:addons/forestry_stock/models/account_analytic_line.py:0
+#, python-format
+msgid "Cannot apply inventory change for %s as result would be negative."
+msgstr ""
+
+#. module: forestry_stock
+#: code:addons/forestry_stock/models/account_analytic_line.py:0
+#, python-format
+msgid "No empty or positive inventory has been found for product %s."
+msgstr ""
+
+#. module: forestry_stock
 #: model:ir.actions.server,name:forestry_stock.timesheet_reset_validation_action
 msgid "Reset Validation"
-msgstr "Validierung zurücksetzen"
+msgstr "Bestätigung zurücksetzen"

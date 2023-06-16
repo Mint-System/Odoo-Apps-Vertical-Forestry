@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
     <record id="view_task_form2_inherited" model="ir.ui.view">
@@ -6,78 +6,134 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
         <field name="arch" type="xml">
-        
+
             <xpath expr="//tree/field[@name='name']" position="after">
-                <field name="validated" optional="hide"/>
-                <field name="order_type" optional="hide"/>
-                <field name="product_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="category_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_qty" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_stock_uom_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_stock_uom_category_id" invisible="1"/>
-                <field name="location_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="location_dest_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="carrier_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('order_type', 'not in', ('chopping'))]}"/>
-                <field name="trips" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field name="validated" optional="hide" />
+                <field name="order_type" optional="hide" />
+                
+                <field name="product_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="category_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_qty" sum="Total" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_stock_uom_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_stock_uom_category_id" invisible="1" />
+                <field name="location_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                
+                <field name="product_dest_id" optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="category_dest_id" optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_dest_qty" sum="Total" optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_dest_stock_uom_id" optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                <field name="product_dest_stock_uom_category_id" invisible="1" />
+                <field name="location_dest_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+                
+                <field name="carrier_id" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('order_type', 'not in', ('chopping'))]}" />
+                <field name="trips" sum="Total" optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}" />
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/tree" position="attributes">
+                <attribute name="editable"></attribute>
+            </xpath>
+
+            <!-- <xpath expr="//field[@name='timesheet_ids']/form[1]" position="before">
+                <field name="validated" invisible="1" />
+            </xpath>  
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]" position="attributes">
+                <attribute name="attrs">{'readonly': [('validated', '=', True)]}</attribute>
+            </xpath> -->
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]/sheet[1]" position="inside">
+                <field name="validated" invisible="1" />
+                <field name="order_type" invisible="1" />
+                <group>
+                    <group>
+                        <field name="product_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="category_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_qty" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_stock_uom_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_stock_uom_category_id" invisible="1" />
+                        <field name="location_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                    </group>
+                    <group>
+                        <field name="product_dest_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="category_dest_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_dest_qty" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_dest_stock_uom_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                        <field name="product_dest_stock_uom_category_id" invisible="1" />
+                        <field name="location_dest_id" attrs="{'readonly': [('validated', '=', True)]}"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]//field[@name='date']" position="attributes">
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]//field[@name='unit_amount']" position="attributes">
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]//field[@name='unit_amount']" position="after">
+                <field name="carrier_id" attrs="{'readonly': [('validated', '=', True)], 'invisible': [('order_type', 'not in', ('chopping'))]}" />
+                <field name="trips" attrs="{'readonly': [('validated', '=', True)]}" />
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']/form[1]//field[@name='employee_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
             </xpath>
 
             <xpath expr="//tree/field[@name='name']" position="attributes">
                 <attribute name="optional">show</attribute>
-                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=', True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
             </xpath>
 
             <field name="date" position="attributes">
                 <attribute name="optional">show</attribute>
-                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=', True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
             </field>
 
             <field name="unit_amount" position="attributes">
                 <attribute name="optional">show</attribute>
                 <attribute name="sum">Total</attribute>
-                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=', True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
             </field>
 
             <field name="employee_id" position="attributes">
                 <attribute name="optional">show</attribute>
-                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=', True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('id', '!=', False), ('validated', '=',
+                    True)]}</attribute>
             </field>
 
             <field name="timesheet_ids" position="attributes">
-                <attribute name="context">{'default_project_id': project_id, 'default_name':'', 'default_product_id': product_id}</attribute>
+                <attribute name="context">{'default_project_id': project_id, 'default_name':'',
+                    'default_product_id': product_id, 'default_product_dest_id': product_dest_id}</attribute>
             </field>
 
             <xpath expr="//notebook/page[@name='description_page']" position="before">
-                <xpath expr="//notebook/page[@id='timesheets_tab']" position="move"/>
+                <xpath expr="//notebook/page[@id='timesheets_tab']" position="move" />
             </xpath>
-            
-        </field>
-    </record>
-
-    <record id="project_task_create_timesheet_view_form" model="ir.ui.view">
-        <field name="name">forestry_timesheet.project_task_create_timesheet_view_form</field>
-        <field name="model">project.task.create.timesheet</field>
-        <field name="inherit_id" ref="hr_timesheet.project_task_create_timesheet_view_form" />
-        <field name="arch" type="xml">
-
-            <field name="description" position="after">
-                <group attrs="{'invisible': [('order_type', '=', 'default')]}">
-                    <field name="product_id"/>
-                    <field name="category_id"/>
-                    <field name="product_qty"/>
-                    <field name="product_stock_uom_id"/>
-                    <field name="product_stock_uom_category_id" invisible="1"/>
-                    <field name="company_id" invisible="1"/>
-                    <field name="location_id"/>
-                    <field name="location_dest_id"/>
-                    <field name="order_type" invisible="1"/>
-                    <field name="carrier_id" attrs="{'invisible': [('order_type', 'not in', ('chopping'))]}"/>
-                    <field name="trips"/>
-                </group>
-            </field>
-
-            <button name="save_timesheet" position="replace">
-                <button string="Save" type="object" name="button_save_timesheet" class="btn btn-primary" data-hotkey="q"/>
-            </button>
 
         </field>
     </record>

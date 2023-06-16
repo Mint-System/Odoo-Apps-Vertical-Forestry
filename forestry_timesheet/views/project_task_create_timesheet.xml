@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_task_create_timesheet_view_form" model="ir.ui.view">
+        <field name="name">forestry_timesheet.project_task_create_timesheet_view_form</field>
+        <field name="model">project.task.create.timesheet</field>
+        <field name="inherit_id" ref="hr_timesheet.project_task_create_timesheet_view_form" />
+        <field name="arch" type="xml">
+
+            <field name="description" position="after">
+                <group attrs="{'invisible': [('order_type', '=', 'default')]}">
+                    <field name="company_id" invisible="1" />
+                    <field name="order_type" invisible="1" />
+
+                    <group>
+                        <field name="product_id" />
+                        <field name="category_id" />
+                        <field name="product_qty" />
+                        <field name="product_stock_uom_id" />
+                        <field name="product_stock_uom_category_id" invisible="1" />
+                        <field name="location_id" />
+
+                        <field name="carrier_id"
+                            attrs="{'invisible': [('order_type', 'not in', ('chopping'))]}" />
+                        <field name="trips" />
+                    </group>
+
+                    <group>
+                        <field name="product_dest_id" />
+                        <field name="category_dest_id" />
+                        <field name="product_dest_qty" />
+                        <field name="product_dest_stock_uom_id" />
+                        <field name="product_dest_stock_uom_category_id" invisible="1" />
+                        <field name="location_dest_id" />
+                    </group>
+
+                </group>
+            </field>
+
+            <button name="save_timesheet" position="replace">
+                <button string="Save" type="object" name="button_save_timesheet"
+                    class="btn btn-primary" data-hotkey="q" />
+            </button>
+
+        </field>
+    </record>
+
+</odoo>

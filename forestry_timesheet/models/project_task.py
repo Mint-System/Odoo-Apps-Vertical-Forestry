@@ -10,4 +10,6 @@ class ProjectTask(models.Model):
         res = super()._action_open_new_timesheet(time_spent)
         if self.product_id:
             res['context']['default_product_id'] = self.product_id.id
+        if self.product_dest_id:
+            res['context']['default_product_dest_id'] = self.product_dest_id.id
         return res

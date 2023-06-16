@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-24 16:21+0000\n"
-"PO-Revision-Date: 2023-05-24 16:21+0000\n"
+"POT-Creation-Date: 2023-06-16 09:54+0000\n"
+"PO-Revision-Date: 2023-06-16 09:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,18 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
 msgid ""
 "<br/>\n"
+"                            <strong>Employee: </strong>"
+msgstr ""
+"<br/>\n"
+"                            <strong>Mitarbeiter: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid ""
+"<br/>\n"
 "                            <strong>Order Type: </strong>"
-msgstr "<br/>\n"
+msgstr ""
+"<br/>\n"
 "                            <strong>Auftragstyp: </strong>"
 
 #. module: forestry_timesheet
@@ -52,18 +62,13 @@ msgstr ""
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
-msgid "<br/> To:"
-msgstr "<br/> Bis:"
-
-#. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
 msgid "<span>Date</span>"
 msgstr "<span>Datum</span>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
-msgid "<span>Employee</span>"
-msgstr "<span>Mitarbeiter</span>"
+msgid "<span>Description</span>"
+msgstr "<span>Beschreibung</span>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
@@ -72,13 +77,8 @@ msgstr "<span>Auftrag: </span>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
-msgid "<span>Origin and Target Location</span>"
-msgstr "<span>Abgangs- und Zielort</span>"
-
-#. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
 msgid "<span>Product / Category</span>"
-msgstr "<span>Produkt / Kategorie</span>"
+msgstr "<span>Polter / Sortiment</span>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
@@ -117,7 +117,9 @@ msgid "Company"
 msgstr ""
 
 #. module: forestry_timesheet
+#: model:ir.model.fields,help:forestry_timesheet.field_account_analytic_line__product_dest_stock_uom_category_id
 #: model:ir.model.fields,help:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
+#: model:ir.model.fields,help:forestry_timesheet.field_project_task_create_timesheet__product_dest_stock_uom_category_id
 #: model:ir.model.fields,help:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_category_id
 msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
@@ -142,11 +144,6 @@ msgstr "Zielort"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
-msgid "From:"
-msgstr "Von:"
-
-#. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
 msgid "Km<br/>"
 msgstr ""
 
@@ -155,24 +152,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__order_type
 msgid "Order Type"
 msgstr "Auftragstyp"
-
-#. module: forestry_timesheet
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_id
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_id
-msgid "Product"
-msgstr "Produkt"
-
-#. module: forestry_timesheet
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_id
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_id
-msgid "Product Category"
-msgstr "Sortiment"
-
-#. module: forestry_timesheet
-#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_qty
-#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_qty
-msgid "Product Quantity"
-msgstr "Menge"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.project_task_create_timesheet_view_form
@@ -186,16 +165,64 @@ msgid "Source Location"
 msgstr "Abgangsort"
 
 #. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_id
+msgid "Source Product"
+msgstr "Abgangs-Polter"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_id
+msgid "Source Product Category"
+msgstr "Abgangs-Sortiment"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_qty
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_qty
+msgid "Source Product Quantity"
+msgstr "Abgangsmenge"
+
+#. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_category_id
-msgid "Stock Category"
-msgstr "Sortiment"
+msgid "Source Stock Category"
+msgstr "Abgangs-Einheit Kategorie"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_id
-msgid "Stock Unit of Measure"
-msgstr "Mengeneinheit"
+msgid "Source Stock Unit of Measure"
+msgstr "Abgangs-Einheit"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_dest_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_dest_id
+msgid "Target Product Category"
+msgstr "Ziel-Sortiment"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_dest_qty
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_dest_qty
+msgid "Target Product Quantity"
+msgstr "Zielmenge"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_dest_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_dest_id
+msgid "Target Produt"
+msgstr "Ziel-Polter"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_dest_stock_uom_category_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_dest_stock_uom_category_id
+msgid "Target Stock Category"
+msgstr "Ziel-Einheit Kategorie"
+
+#. module: forestry_timesheet
+#: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_dest_stock_uom_id
+#: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_dest_stock_uom_id
+msgid "Target Stock Unit of Measure"
+msgstr "Ziel-Einheit"
 
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_project_task

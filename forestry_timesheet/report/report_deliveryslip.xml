@@ -9,8 +9,11 @@
                             <th class="align-middle">
                                 <span>Date</span>
                             </th>
-                            <th class="align-middle">
+                            <!-- <th class="align-middle">
                                 <span>Employee</span>
+                            </th> -->
+                            <th class="align-middle">
+                                <span>Description</span>
                             </th>
                             <th class="align-middle">
                                 <span>Product / Category</span>
@@ -18,9 +21,9 @@
                             <th class="align-middle">
                                 <span>Quantity</span>
                             </th>
-                            <th class="align-middle">
+                            <!-- <th class="align-middle">
                                 <span>Origin and Target Location</span>
-                            </th>
+                            </th> -->
                             <th class="align-middle text-right">
                                 <span>Trips / Duration</span>
                             </th>
@@ -31,23 +34,39 @@
                             <td>
                                 <span t-field="line.date" />
                             </td>
-                            <td>
+                            <!-- <td>
                                 <span t-field="line.user_id.partner_id.name" />
                                 <span t-if="not line.user_id.partner_id.name"
                                     t-field="line.employee_id" />
+                            </td> -->
+                            <td>
+                                <t if="line.name">
+                                    <span t-esc="line.name.replace('/','')" />
+                                </t>
                             </td>
                             <td>
                                 <span t-field="line.product_id" />
                                 <span t-if="line.product_id and line.category_id"> / </span>
                                 <span t-field="line.category_id" />
+                                <t if="line.product_dest_id">
+                                    <br />
+                                    <span t-field="line.product_dest_id" />
+                                    <span t-if="line.product_dest_id and line.category_dest_id"> / </span>
+                                    <span t-field="line.category_dest_id"/>
+                                </t>
                             </td>
                             <td>
                                 <span t-field="line.product_qty" />
                                 <span t-field="line.product_stock_uom_id" />
+                                <t if="line.product_dest_id">
+                                    <br />
+                                    <span t-field="line.product_dest_qty" />
+                                    <span t-field="line.product_dest_stock_uom_id" />
+                                </t>
                             </td>
-                            <td> From: <span t-field="line.location_id" /><br /> To: <span
+                            <!-- <td> From: <span t-field="line.location_id" /><br /> To: <span
                                     t-field="line.location_dest_id" />
-                            </td>
+                            </td> -->
                             <td class="text-right">
                                 <span t-field="line.trips" /> Km<br />
                                 <span t-if="is_uom_day"
@@ -93,6 +112,9 @@
                             <br />
                             <strong>Project: </strong>
                             <span t-field="doc.project_id" />
+                            <br />
+                            <strong>Employee: </strong>
+                            <span t-field="doc.user_ids" />
                             <br />
                         </p>
 

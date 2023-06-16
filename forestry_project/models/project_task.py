@@ -28,11 +28,14 @@ class ProjectTask(models.Model):
         default='/',
         copy=False,
     )
-    product_id = fields.Many2one('product.product', check_company=True)
+    product_id = fields.Many2one('product.product', 'Source Product', check_company=True)
     location_id = fields.Many2one('res.partner', 'Source Location', check_company=True)
     location_link = fields.Char('Source Location Link', related='location_id.location_link', readonly=False)
+
+    product_dest_id = fields.Many2one('product.product', 'Target Product', check_company=True)
     location_dest_id = fields.Many2one('res.partner', 'Destination Location', check_company=True)
     location_dest_link = fields.Char('Destination Location Link', related='location_dest_id.location_link', readonly=False)
+
     vehicle_id = fields.Many2one('fleet.vehicle', check_company=True, tracking=True)
     trailer = fields.Boolean()
 
@@ -57,11 +60,17 @@ class ProjectTask(models.Model):
             res.append((record.id, '[%s] %s' % (record.code, record.name)))
         return res
 
-    @api.onchange('product_id')
+    @api.onchange('product_id', 'product_dest_id')
     def _onchange_product_id(self):
         for task in self:
             if not task.location_id :
                 task.location_id = task.product_id.location_partner_id
+
+    @api.onchange('product_dest_id')
+    def _onchange_product_dest_id(self):
+        for task in self:
+            if not task.location_dest_id :
+                task.location_dest_id = task.product_dest_id.location_partner_id
 
     @api.model_create_multi
     def create(self, vals_list):
