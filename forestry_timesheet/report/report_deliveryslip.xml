@@ -40,7 +40,7 @@
                                     t-field="line.employee_id" />
                             </td> -->
                             <td>
-                                <t if="line.name">
+                                <t t-if="line.name">
                                     <span t-esc="line.name.replace('/','')" />
                                 </t>
                             </td>
@@ -48,7 +48,7 @@
                                 <span t-field="line.product_id" />
                                 <span t-if="line.product_id and line.category_id"> / </span>
                                 <span t-field="line.category_id" />
-                                <t if="line.product_dest_id">
+                                <t t-if="line.product_dest_id">
                                     <br />
                                     <span t-field="line.product_dest_id" />
                                     <span t-if="line.product_dest_id and line.category_dest_id"> / </span>
@@ -58,7 +58,7 @@
                             <td>
                                 <span t-field="line.product_qty" />
                                 <span t-field="line.product_stock_uom_id" />
-                                <t if="line.product_dest_qty > 0.0">
+                                <t t-if="line.product_dest_qty > 0.0">
                                     <br />
                                     <span t-field="line.product_dest_qty" />
                                     <span t-field="line.product_dest_stock_uom_id" />
