@@ -58,7 +58,7 @@
                             <td>
                                 <span t-field="line.product_qty" />
                                 <span t-field="line.product_stock_uom_id" />
-                                <t if="line.product_dest_id">
+                                <t if="line.product_dest_qty > 0.0">
                                     <br />
                                     <span t-field="line.product_dest_qty" />
                                     <span t-field="line.product_dest_stock_uom_id" />
