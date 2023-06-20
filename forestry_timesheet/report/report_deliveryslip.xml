@@ -3,7 +3,12 @@
     <template id="forestry_timesheet.deliveryslip_table">
         <div class="row" style="margin-top:10px;">
             <div class="col-lg-12">
-                <table class="table table-sm">
+                <style>
+                    table.deliveryslip_table {
+                        font-size: 0.9rem;
+                    }
+                </style>
+                <table class="table table-sm deliveryslip_table">
                     <thead>
                         <tr>
                             <th class="align-middle">
@@ -21,9 +26,9 @@
                             <th class="align-middle">
                                 <span>Quantity</span>
                             </th>
-                            <!-- <th class="align-middle">
+                            <th class="align-middle">
                                 <span>Origin and Target Location</span>
-                            </th> -->
+                            </th>
                             <th class="align-middle text-right">
                                 <span>Trips / Duration</span>
                             </th>
@@ -64,9 +69,10 @@
                                     <span t-field="line.product_dest_stock_uom_id" />
                                 </t>
                             </td>
-                            <!-- <td> From: <span t-field="line.location_id" /><br /> To: <span
-                                    t-field="line.location_dest_id" />
-                            </td> -->
+                            <td> 
+                            From: <span t-field="line.location_id" /><br />
+                            To: <span t-field="line.location_dest_id" />
+                            </td>
                             <td class="text-right">
                                 <span t-field="line.trips" /> Km<br />
                                 <span t-if="is_uom_day"
@@ -116,15 +122,12 @@
                             <strong>Employee: </strong>
                             <span t-field="doc.user_ids" />
                             <br />
-                        </p>
-
-                        <p>
-                            <strong>Origin Location: </strong>
+                            <!-- <strong>Origin Location: </strong>
                             <span t-field="doc.location_id" />
                             <br />
                             <strong>Target Location: </strong>
                             <span t-field="doc.location_dest_id" />
-                            <br />
+                            <br /> -->
                             <strong>Vehicle: </strong>
                             <span t-field="doc.vehicle_id" />
                             <br />
