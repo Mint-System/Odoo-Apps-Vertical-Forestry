@@ -6,7 +6,7 @@
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Administration",
-    "version": "15.0.3.0.3",
+    "version": "15.0.3.1.0",
     "license": "OEEL-1",
     "depends": ["forestry_project", "stock", "timesheet_grid"],
     "data": [

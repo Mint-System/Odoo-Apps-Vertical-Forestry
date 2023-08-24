@@ -4,7 +4,14 @@ _logger = logging.getLogger(__name__)
 
 
 class ProjectTask(models.Model):
-    _inherit = "project.task"
+    _inherit = 'project.task'
+
+    qty_total = fields.Float('Total Quantity', compute='_compute_qty_total')
+
+    @api.depends('timesheet_ids')
+    def _compute_qty_total(self):
+        for task in self:
+            task.qty_total = sum(task.timesheet_ids.mapped('product_qty'))
 
     def _action_open_new_timesheet(self, time_spent):
         res = super()._action_open_new_timesheet(time_spent)

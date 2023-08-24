@@ -45,14 +45,6 @@
                 <attribute name="editable"></attribute>
             </xpath>
 
-            <!-- <xpath expr="//field[@name='timesheet_ids']/form[1]" position="before">
-                <field name="validated" invisible="1" />
-            </xpath>  
-
-            <xpath expr="//field[@name='timesheet_ids']/form[1]" position="attributes">
-                <attribute name="attrs">{'readonly': [('validated', '=', True)]}</attribute>
-            </xpath> -->
-
             <xpath expr="//field[@name='timesheet_ids']/form[1]/sheet[1]" position="inside">
                 <field name="validated" invisible="1" />
                 <field name="order_type" invisible="1" />
@@ -134,6 +126,19 @@
             <xpath expr="//notebook/page[@name='description_page']" position="before">
                 <xpath expr="//notebook/page[@id='timesheets_tab']" position="move" />
             </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_task_tree2" model="ir.ui.view">
+        <field name="name">forestry_timesheet.view_task_tree2</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+
+            <field name="user_ids" position="after">
+                <field name="qty_total" />
+            </field>
 
         </field>
     </record>
