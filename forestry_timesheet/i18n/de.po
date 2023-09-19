@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-24 13:31+0000\n"
-"PO-Revision-Date: 2023-08-24 13:31+0000\n"
+"POT-Creation-Date: 2023-09-19 07:52+0000\n"
+"PO-Revision-Date: 2023-09-19 07:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,12 +44,8 @@ msgstr ""
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
-msgid ""
-"<br/>\n"
-"                            To:"
+msgid "<br/> To:"
 msgstr ""
-"<br/>\n"
-"                            Nach:"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
@@ -87,6 +83,11 @@ msgid "<span>Trips / Duration</span>"
 msgstr "<span>Distanz / Dauer</span>"
 
 #. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<strong>Total Quantity</strong>"
+msgstr "<strong>Summe Menge</strong>"
+
+#. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
 msgid "<strong>Order Number: </strong>"
 msgstr "<strong>Auftragsnummer: </strong>"
@@ -99,7 +100,7 @@ msgstr "<strong>Fahrzeug: </strong>"
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Kostenstellen-Buchungen"
+msgstr "Kostenstellenbuchungen"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__carrier_id
@@ -234,10 +235,11 @@ msgstr "Aufgabe"
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.hr_timesheet_line_tree
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.view_task_form2_inherited
 msgid "Total"
-msgstr ""
+msgstr "Summe"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task__qty_total
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.view_task_tree2
 msgid "Total Quantity"
 msgstr "Summe Abgangsmenge"
 

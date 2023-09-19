@@ -137,7 +137,7 @@
         <field name="arch" type="xml">
 
             <field name="user_ids" position="after">
-                <field name="qty_total" />
+                <field name="qty_total" sum="Total Quantity"/>
             </field>
 
         </field>
