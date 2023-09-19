@@ -41,6 +41,9 @@
                                 <span t-field="line.date" />
                             </td>
                             <td>
+                                <t t-if="line.carrier_id">
+                                    <span t-esc="line.carrier_id.name" />:<br />
+                                </t>
                                 <t t-if="line.name">
                                     <span t-esc="line.name.replace('/','')" />
                                 </t>
@@ -134,12 +137,6 @@
                             <strong>Employee: </strong>
                             <span t-field="doc.user_ids" />
                             <br />
-                            <!-- <strong>Origin Location: </strong>
-                            <span t-field="doc.location_id" />
-                            <br />
-                            <strong>Target Location: </strong>
-                            <span t-field="doc.location_dest_id" />
-                            <br /> -->
                             <t t-if="doc.vehicle_id">
                                 <strong>Vehicle: </strong>
                                 <span t-field="doc.vehicle_id" />
@@ -147,8 +144,8 @@
                             <br />
                         </p>
 
-                        <t t-set='is_uom_day' t-value='doc.encode_uom_in_days' />
-                        <t t-set='lines' t-value='doc.timesheet_ids' />
+                        <t t-set="is_uom_day" t-value="doc.encode_uom_in_days" />
+                        <t t-set="lines" t-value="doc.timesheet_ids.sorted(reverse=True)" />
                         <t t-call="forestry_timesheet.deliveryslip_table" />
 
                     </div>
