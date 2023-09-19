@@ -88,10 +88,15 @@
                     <div id="total" class="row col-4 ml-auto" name="total">
                         <table class="table table-sm">
                             <tr>
-                                <td><strong>Total Quantity</strong></td>
+                                <td>
+                                    <strong>Total Quantity</strong>
+                                </td>
                                 <td class="text-right">
                                     <span
                                         t-esc="sum(lines.mapped('product_qty'))"
+                                    />
+                                    <span t-if="lines"
+                                        t-field="lines[0].product_stock_uom_id"
                                     />
                                 </td>
                             </tr>
