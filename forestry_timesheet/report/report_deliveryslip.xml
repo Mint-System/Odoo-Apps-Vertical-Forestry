@@ -50,12 +50,16 @@
                             </td>
                             <td>
                                 <span t-field="line.product_id" />
-                                <span t-if="line.product_id and line.category_id"> / </span>
+                                <span
+                                    t-if="line.product_id and line.category_id"
+                                > / </span>
                                 <span t-field="line.category_id" />
                                 <t t-if="line.product_dest_id">
                                     <br />
                                     <span t-field="line.product_dest_id" />
-                                    <span t-if="line.product_dest_id and line.category_dest_id"> / </span>
+                                    <span
+                                        t-if="line.product_dest_id and line.category_dest_id"
+                                    > / </span>
                                     <span t-field="line.category_dest_id" />
                                 </t>
                             </td>
@@ -68,17 +72,21 @@
                                     <span t-field="line.product_dest_stock_uom_id" />
                                 </t>
                             </td>
-                            <td> From: <span t-field="line.location_id" /><br /> To: <span
-                                    t-field="line.location_dest_id" />
+                            <td> From: <span t-field="line.location_id" /><br
+                                /> To: <span t-field="line.location_dest_id" />
                             </td>
                             <td class="text-right">
                                 <span t-field="line.trips" /> Km<br />
-                                <span t-if="is_uom_day"
+                                <span
+                                    t-if="is_uom_day"
                                     t-esc="line._get_timesheet_time_day()"
-                                    t-options="{'widget': 'timesheet_uom'}" />
-                                <span t-else=""
+                                    t-options="{'widget': 'timesheet_uom'}"
+                                />
+                                <span
+                                    t-else=""
                                     t-field="line.unit_amount"
-                                    t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}" />
+                                    t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"
+                                />
                             </td>
                         </tr>
                     </tbody>
@@ -92,10 +100,9 @@
                                     <strong>Total Quantity</strong>
                                 </td>
                                 <td class="text-right">
+                                    <span t-esc="sum(lines.mapped('product_qty'))" />
                                     <span
-                                        t-esc="sum(lines.mapped('product_qty'))"
-                                    />
-                                    <span t-if="lines"
+                                        t-if="lines"
                                         t-field="lines[0].product_stock_uom_id"
                                     />
                                 </td>
@@ -114,10 +121,15 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="doc">
 
-                    <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+                    <t
+                        t-set="doc"
+                        t-value="doc.with_context(lang=doc.partner_id.lang)"
+                    />
                     <t t-set="address">
-                        <div t-field="doc.partner_id"
-                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                        <div
+                            t-field="doc.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'
+                        />
                     </t>
 
                     <div class="page">
@@ -150,7 +162,10 @@
                         </p>
 
                         <t t-set="is_uom_day" t-value="doc.encode_uom_in_days" />
-                        <t t-set="lines" t-value="doc.timesheet_ids.sorted(reverse=True)" />
+                        <t
+                            t-set="lines"
+                            t-value="doc.timesheet_ids.sorted(reverse=True)"
+                        />
                         <t t-call="forestry_timesheet.deliveryslip_table" />
 
                     </div>
@@ -163,7 +178,9 @@
         <field name="name">Delivery Slip</field>
         <field name="model">project.task</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">forestry_timesheet.report_project_task_deliveryslip</field>
+        <field
+            name="report_name"
+        >forestry_timesheet.report_project_task_deliveryslip</field>
         <field name="report_file">report_deliveryslip_task</field>
         <field name="binding_model_id" ref="model_project_task" />
         <field name="binding_type">report</field>

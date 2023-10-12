@@ -8,14 +8,21 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='group_standard_price']" position="after">
                 <group name="group_forestry">
-                    <field name="supplier_id"/>
-                    <field name="supplier_code"/>
-                    <field name="location_partner_id" context="{'default_company_type': 'company'}"/>
-                    <label for="location_link" placeholder="Insert link here"/>
+                    <field name="supplier_id" />
+                    <field name="supplier_code" />
+                    <field
+                        name="location_partner_id"
+                        context="{'default_company_type': 'company'}"
+                    />
+                    <label for="location_link" placeholder="Insert link here" />
                     <div>
-                        <field name="location_link" widget="url"/>
-                        <a href="https://map.geo.admin.ch" target="_new" attrs="{'invisible': [('location_link', '!=', False)]}">
-                        <i class="fa fa-fw fa-arrow-right"/>
+                        <field name="location_link" widget="url" />
+                        <a
+                            href="https://map.geo.admin.ch"
+                            target="_new"
+                            attrs="{'invisible': [('location_link', '!=', False)]}"
+                        >
+                        <i class="fa fa-fw fa-arrow-right" />
                         Open map.geo.admin.ch
                         </a>
                     </div>
@@ -35,5 +42,5 @@
             </field>
         </field>
     </record>
-    
+
 </odoo>

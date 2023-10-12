@@ -8,26 +8,81 @@
         <field name="arch" type="xml">
 
             <xpath expr="//tree/field[@name='name']" position="after">
-                <field name="validated" optional="hide"/>
-                <field name="order_type" optional="hide"/>
+                <field name="validated" optional="hide" />
+                <field name="order_type" optional="hide" />
 
-                <field name="product_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="category_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_qty" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_stock_uom_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="product_stock_uom_category_id" invisible="1"/>
-                <field name="location_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                 <field name="location_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field
+                    name="product_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                <field
+                    name="category_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                <field
+                    name="product_qty"
+                    sum="Total"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                <field
+                    name="product_stock_uom_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                <field name="product_stock_uom_category_id" invisible="1" />
+                <field
+                    name="location_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                 <field
+                    name="location_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
 
-                <field name="product_dest_id" optional="hide" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"/>
-                <field name="category_dest_id" optional="hide" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"/>
-                <field name="product_dest_qty" sum="Total" optional="hide" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"/>
-                <field name="product_dest_stock_uom_id" optional="hide" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"/>
-                <field name="product_dest_stock_uom_category_id" invisible="1"/>
-                <field name="location_dest_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                
-                <field name="carrier_id" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
-                <field name="trips" sum="Total" optional="show" attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"/>
+                <field
+                    name="product_dest_id"
+                    optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"
+                />
+                <field
+                    name="category_dest_id"
+                    optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"
+                />
+                <field
+                    name="product_dest_qty"
+                    sum="Total"
+                    optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"
+                />
+                <field
+                    name="product_dest_stock_uom_id"
+                    optional="hide"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)], 'invisible': [('product_dest_id', '=', False)]}"
+                />
+                <field name="product_dest_stock_uom_category_id" invisible="1" />
+                <field
+                    name="location_dest_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+
+                <field
+                    name="carrier_id"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
+                <field
+                    name="trips"
+                    sum="Total"
+                    optional="show"
+                    attrs="{'readonly': [('id', '!=', False), ('validated', '=', True)]}"
+                />
             </xpath>
 
             <field name="date" position="attributes">
@@ -41,15 +96,24 @@
         </field>
     </record>
 
-    <record id="hr_timesheet.act_hr_timesheet_line_view_tree" model="ir.actions.act_window.view">
-        <field name="sequence" eval="2"/>
+    <record
+        id="hr_timesheet.act_hr_timesheet_line_view_tree"
+        model="ir.actions.act_window.view"
+    >
+        <field name="sequence" eval="2" />
     </record>
 
-    <record id="hr_timesheet.timesheet_action_view_all_tree" model="ir.actions.act_window.view">
-        <field name="sequence" eval="2"/>
+    <record
+        id="hr_timesheet.timesheet_action_view_all_tree"
+        model="ir.actions.act_window.view"
+    >
+        <field name="sequence" eval="2" />
     </record>
 
-    <record id="timesheet_grid.timesheet_grid_to_validate_action" model="ir.actions.act_window">
+    <record
+        id="timesheet_grid.timesheet_grid_to_validate_action"
+        model="ir.actions.act_window"
+    >
         <field name="view_mode">tree,grid</field>
     </record>
 

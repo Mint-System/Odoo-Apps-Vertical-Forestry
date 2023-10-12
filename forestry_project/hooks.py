@@ -26,12 +26,18 @@ def post_init_hook(cr, registry):
     for project_id in projects.ids:
         cr.execute(
             "UPDATE project_project SET code = %s WHERE id = %s;",
-            (sequence_obj.next_by_code("project.project"), project_id,),
+            (
+                sequence_obj.next_by_code("project.project"),
+                project_id,
+            ),
         )
 
     tasks = env["project.task"].search([], order="id")
     for task_id in tasks.ids:
         cr.execute(
             "UPDATE project_task SET code = %s WHERE id = %s;",
-            (sequence_obj.next_by_code("project.project"), task_id,),
+            (
+                sequence_obj.next_by_code("project.project"),
+                task_id,
+            ),
         )

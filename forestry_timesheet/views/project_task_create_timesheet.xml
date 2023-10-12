@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
     <record id="project_task_create_timesheet_view_form" model="ir.ui.view">
-        <field name="name">forestry_timesheet.project_task_create_timesheet_view_form</field>
+        <field
+            name="name"
+        >forestry_timesheet.project_task_create_timesheet_view_form</field>
         <field name="model">project.task.create.timesheet</field>
-        <field name="inherit_id" ref="hr_timesheet.project_task_create_timesheet_view_form" />
+        <field
+            name="inherit_id"
+            ref="hr_timesheet.project_task_create_timesheet_view_form"
+        />
         <field name="arch" type="xml">
 
             <field name="description" position="after">
@@ -20,8 +25,10 @@
                         <field name="product_stock_uom_category_id" invisible="1" />
                         <field name="location_id" />
 
-                        <field name="carrier_id"
-                            attrs="{'invisible': [('order_type', 'not in', ('chopping'))]}" />
+                        <field
+                            name="carrier_id"
+                            attrs="{'invisible': [('order_type', 'not in', ('chopping'))]}"
+                        />
                         <field name="trips" />
                     </group>
 
@@ -30,7 +37,10 @@
                         <field name="category_dest_id" />
                         <field name="product_dest_qty" />
                         <field name="product_dest_stock_uom_id" />
-                        <field name="product_dest_stock_uom_category_id" invisible="1" />
+                        <field
+                            name="product_dest_stock_uom_category_id"
+                            invisible="1"
+                        />
                         <field name="location_dest_id" />
                     </group>
 
@@ -38,8 +48,13 @@
             </field>
 
             <button name="save_timesheet" position="replace">
-                <button string="Save" type="object" name="button_save_timesheet"
-                    class="btn btn-primary" data-hotkey="q" />
+                <button
+                    string="Save"
+                    type="object"
+                    name="button_save_timesheet"
+                    class="btn btn-primary"
+                    data-hotkey="q"
+                />
             </button>
 
         </field>
