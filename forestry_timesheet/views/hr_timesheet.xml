@@ -117,4 +117,22 @@
         <field name="view_mode">tree,grid</field>
     </record>
 
+    <record id="hr_timesheet_line_search" model="ir.ui.view">
+        <field name="name">forestry_project.hr_timesheet_line_search</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search" />
+        <field name="arch" type="xml">
+            <field name="project_id" position="attributes">
+                <attribute name="filter_domain">['|', ('project_id', 'ilike', self),
+                    ('project_id.code', 'ilike', self)]
+                </attribute>
+            </field>
+            <field name="task_id" position="attributes">
+                <attribute name="filter_domain">['|', ('task_id', 'ilike', self),
+                    ('task_id.code', 'ilike', self)]
+                </attribute>
+            </field>
+        </field>
+    </record>
+
 </odoo>

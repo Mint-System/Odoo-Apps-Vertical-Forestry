@@ -53,31 +53,10 @@
         </field>
     </record>
 
-    <record id="view_task_kanban" model="ir.ui.view">
-        <field name="name">forestry_project.view_task_kanban</field>
-        <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.view_task_kanban" />
-        <field name="arch" type="xml">
-
-            <xpath expr="/kanban/field[@name='user_ids']" position="after">
-                <field name="order_type" />
-            </xpath>
-
-            <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="after">
-                <br /><span><t t-esc="record.order_type.value" /></span>
-            </xpath>
-
-            <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="before">
-                <span>[<field name="code" />]</span>
-            </xpath>
-
-        </field>
-    </record>
-
-    <record id="view_task_search_formh" model="ir.ui.view">
-        <field name="name">forestry_project.view_task_search_formh</field>
-        <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.view_task_search_form" />
+    <record id="view_project_project_filter" model="ir.ui.view">
+        <field name="name">forestry_project.view_project_project_filter</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
         <field name="arch" type="xml">
             <field name="name" position="attributes">
                 <attribute name="filter_domain">['|', ('name', 'ilike', self),
@@ -86,7 +65,7 @@
             </field>
         </field>
     </record>
-
+    
     <record id="action_view_all_task2" model="ir.actions.act_window">
         <field name="name">All Tasks</field>
         <field name="res_model">project.task</field>
