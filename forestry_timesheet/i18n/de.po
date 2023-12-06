@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-19 07:52+0000\n"
-"PO-Revision-Date: 2023-09-19 07:52+0000\n"
+"POT-Creation-Date: 2023-12-06 16:13+0000\n"
+"PO-Revision-Date: 2023-12-06 16:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid ":<br/>"
+msgstr ""
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
@@ -83,14 +88,24 @@ msgid "<span>Trips / Duration</span>"
 msgstr "<span>Distanz / Dauer</span>"
 
 #. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Order Number: </strong>"
+msgstr "<strong>Auftragsnummer: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<strong>Total Duration</strong>"
+msgstr "<strong>Summe Dauer</strong>"
+
+#. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
 msgid "<strong>Total Quantity</strong>"
 msgstr "<strong>Summe Menge</strong>"
 
 #. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
-msgid "<strong>Order Number: </strong>"
-msgstr "<strong>Auftragsnummer: </strong>"
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
+msgid "<strong>Total Trips</strong>"
+msgstr "<strong>Summe Distanz</strong>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
@@ -126,7 +141,7 @@ msgstr ""
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_project_task_create_timesheet
 msgid "Create Timesheet from task"
-msgstr "Erfasse Zeiten für Aufgaben"
+msgstr "Zeiterfassungsbogen aus Aufgabe erstellen"
 
 #. module: forestry_timesheet
 #: model:ir.actions.report,name:forestry_timesheet.deliveryslip_report_task

@@ -72,8 +72,8 @@
                                     <span t-field="line.product_dest_stock_uom_id" />
                                 </t>
                             </td>
-                            <td> From: <span t-field="line.location_id" /><br
-                                /> To: <span t-field="line.location_dest_id" />
+                            <td> From: <span t-field="line.location_id" /><br /> To: <span
+                                    t-field="line.location_dest_id" />
                             </td>
                             <td class="text-right">
                                 <span t-field="line.trips" /> Km<br />
@@ -104,6 +104,31 @@
                                     <span
                                         t-if="lines"
                                         t-field="lines[0].product_stock_uom_id"
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Total Trips</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="sum(line.mapped('trips'))" /> Km<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Total Duration</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span
+                                        t-if="is_uom_day"
+                                        t-esc="sum(lines.mapped(lambda l: l._get_timesheet_time_day()))"
+                                        t-options="{'widget': 'timesheet_uom'}"
+                                    />
+                                    <span
+                                        t-else=""
+                                        t-esc="sum(lines.mapped('unit_amount'))"
+                                        t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"
                                     />
                                 </td>
                             </tr>
