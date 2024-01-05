@@ -9,9 +9,7 @@ from odoo.exceptions import UserError
 class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
-    def _action_remove_inventory(
-        self, product_id, product_stock_uom_id, product_qty
-    ):
+    def _action_remove_inventory(self, product_id, product_stock_uom_id, product_qty):
         """Remove on hand qty."""
 
         self.ensure_one()
@@ -43,9 +41,7 @@ class AccountAnalyticLine(models.Model):
             quant.inventory_quantity = quant.quantity - line_quantity
             quant.action_apply_inventory()
 
-    def _action_increase_inventory(
-        self, product_id, product_stock_uom_id, product_qty
-    ):
+    def _action_increase_inventory(self, product_id, product_stock_uom_id, product_qty):
         """Increase on hand qty."""
 
         self.ensure_one()
@@ -71,9 +67,7 @@ class AccountAnalyticLine(models.Model):
                 quant = self.env["stock.quant"].create(
                     {
                         "product_id": product_id.id,
-                        "location_id": self.env.ref(
-                            "stock.stock_location_stock"
-                        ).id,
+                        "location_id": self.env.ref("stock.stock_location_stock").id,
                     }
                 )
 

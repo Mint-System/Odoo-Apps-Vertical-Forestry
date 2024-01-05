@@ -66,14 +66,14 @@
                             <td>
                                 <span t-field="line.product_qty" />
                                 <span t-field="line.product_stock_uom_id" />
-                                <t t-if="line.product_dest_qty > 0.0">
+                                <t t-if="line.product_dest_qty != line.product_qty">
                                     <br />
                                     <span t-field="line.product_dest_qty" />
                                     <span t-field="line.product_dest_stock_uom_id" />
                                 </t>
                             </td>
-                            <td> From: <span t-field="line.location_id" /><br /> To: <span
-                                    t-field="line.location_dest_id" />
+                            <td> From: <span t-field="line.location_id" /><br
+                                /> To: <span t-field="line.location_dest_id" />
                             </td>
                             <td class="text-right">
                                 <span t-field="line.trips" /> Km<br />
@@ -112,7 +112,7 @@
                                     <strong>Total Trips</strong>
                                 </td>
                                 <td class="text-right">
-                                    <span t-esc="sum(line.mapped('trips'))" /> Km<br />
+                                    <span t-esc="sum(lines.mapped('trips'))" /> Km<br />
                                 </td>
                             </tr>
                             <tr>
@@ -166,25 +166,38 @@
                             <span t-field="doc.name" />
                         </h2>
 
-                        <p>
-                            <strong>Order Number: </strong>
-                            <span t-field="doc.code" />
-                            <br />
-                            <strong>Order Type: </strong>
-                            <span t-field="doc.order_type" />
-                            <br />
-                            <strong>Project: </strong>
-                            <span t-field="doc.project_id" />
-                            <br />
-                            <strong>Employee: </strong>
-                            <span t-field="doc.user_ids" />
-                            <br />
+                        <div>
+                            <t t-if="doc.code">
+                                <strong>Order Number: </strong>
+                                <span t-field="doc.code" />
+                                <br />
+                            </t>
+                            <t t-if="doc.order_type">
+                                <strong>Order Type: </strong>
+                                <span t-field="doc.order_type" />
+                                <br />
+                            </t>
+                            <t t-if="doc.order_type">
+                                <strong>Project: </strong>
+                                <span t-field="doc.order_type" />
+                                <br />
+                            </t>
+                            <t t-if="doc.user_ids">
+                                <strong>Employee: </strong>
+                                <span t-field="doc.user_ids" />
+                                <br />
+                            </t>
                             <t t-if="doc.vehicle_id">
                                 <strong>Vehicle: </strong>
                                 <span t-field="doc.vehicle_id" />
+                                <br />
                             </t>
-                            <br />
-                        </p>
+                            <t t-if="doc.vehicle_id">
+                                <strong>Trailer: </strong>
+                                <span t-if="doc.trailer">Yes</span>
+                                <span t-if="not doc.trailer">No</span>
+                            </t>
+                        </div>
 
                         <t t-set="is_uom_day" t-value="doc.encode_uom_in_days" />
                         <t

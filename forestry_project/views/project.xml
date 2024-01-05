@@ -65,7 +65,7 @@
             </field>
         </field>
     </record>
-    
+
     <record id="action_view_all_task2" model="ir.actions.act_window">
         <field name="name">All Tasks</field>
         <field name="res_model">project.task</field>

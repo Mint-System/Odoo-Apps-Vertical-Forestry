@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-06 16:13+0000\n"
-"PO-Revision-Date: 2023-12-06 16:13+0000\n"
+"POT-Creation-Date: 2024-01-05 14:00+0000\n"
+"PO-Revision-Date: 2024-01-05 14:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,36 +21,9 @@ msgid ":<br/>"
 msgstr ""
 
 #. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
-msgid ""
-"<br/>\n"
-"                            <strong>Employee: </strong>"
-msgstr ""
-"<br/>\n"
-"                            <strong>Mitarbeiter: </strong>"
-
-#. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
-msgid ""
-"<br/>\n"
-"                            <strong>Order Type: </strong>"
-msgstr ""
-"<br/>\n"
-"                            <strong>Auftragstyp: </strong>"
-
-#. module: forestry_timesheet
-#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
-msgid ""
-"<br/>\n"
-"                            <strong>Project: </strong>"
-msgstr ""
-"<br/>\n"
-"                            <strong>Projekt: </strong>"
-
-#. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
 msgid "<br/> To:"
-msgstr ""
+msgstr "<br/> Bis:"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
@@ -89,8 +62,23 @@ msgstr "<span>Distanz / Dauer</span>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Employee: </strong>"
+msgstr "<strong>Mitarbeiter: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
 msgid "<strong>Order Number: </strong>"
 msgstr "<strong>Auftragsnummer: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Order Type: </strong>"
+msgstr "<strong>Auftragstyp: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Project: </strong>"
+msgstr "<strong>Projekt: </strong>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.deliveryslip_table
@@ -109,13 +97,18 @@ msgstr "<strong>Summe Distanz</strong>"
 
 #. module: forestry_timesheet
 #: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "<strong>Trailer: </strong>"
+msgstr "<strong>Anhänger: </strong>"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
 msgid "<strong>Vehicle: </strong>"
 msgstr "<strong>Fahrzeug: </strong>"
 
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Kostenstellenbuchungen"
+msgstr "Kostenstellen-Buchungen"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__carrier_id
@@ -141,7 +134,7 @@ msgstr ""
 #. module: forestry_timesheet
 #: model:ir.model,name:forestry_timesheet.model_project_task_create_timesheet
 msgid "Create Timesheet from task"
-msgstr "Zeiterfassungsbogen aus Aufgabe erstellen"
+msgstr "Erfasse Zeiten für Aufgaben"
 
 #. module: forestry_timesheet
 #: model:ir.actions.report,name:forestry_timesheet.deliveryslip_report_task
@@ -165,6 +158,11 @@ msgid "Km<br/>"
 msgstr ""
 
 #. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "No"
+msgstr "Nein"
+
+#. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__order_type
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__order_type
 msgid "Order Type"
@@ -185,31 +183,31 @@ msgstr "Abgangsort"
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_id
 msgid "Source Product"
-msgstr "Abgangs-Polter"
+msgstr "Polter"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__category_id
 msgid "Source Product Category"
-msgstr "Abgangs-Sortiment"
+msgstr "Sortiment"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_qty
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_qty
 msgid "Source Product Quantity"
-msgstr "Abgangsmenge"
+msgstr "Menge"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_category_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_category_id
 msgid "Source Stock Category"
-msgstr "Abgangs-Einheit Kategorie"
+msgstr "Einheit Kategorie"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__product_stock_uom_id
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__product_stock_uom_id
 msgid "Source Stock Unit of Measure"
-msgstr "Abgangs-Einheit"
+msgstr Einheit"
 
 #. module: forestry_timesheet
 #: model:ir.model.fields,field_description:forestry_timesheet.field_account_analytic_line__category_dest_id
@@ -263,3 +261,8 @@ msgstr "Summe Abgangsmenge"
 #: model:ir.model.fields,field_description:forestry_timesheet.field_project_task_create_timesheet__trips
 msgid "Trips"
 msgstr "Km"
+
+#. module: forestry_timesheet
+#: model_terms:ir.ui.view,arch_db:forestry_timesheet.report_project_task_deliveryslip
+msgid "Yes"
+msgstr "Ja"
