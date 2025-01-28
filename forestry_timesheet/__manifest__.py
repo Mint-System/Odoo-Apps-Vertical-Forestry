@@ -3,7 +3,7 @@
     "summary": """
         Extend timesheet app for forestry.
     """,
-    "author": "Mint System GmbH, Odoo Community Association (OCA)",
+    "author": "Mint System GmbH",
     "website": "https://www.mint-system.ch",
     "category": "Administration",
     "version": "15.0.4.2.0",
