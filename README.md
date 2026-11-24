@@ -1,20 +1,17 @@
-# Odoo Apps: Forestry
+# Odoo Apps: Vertical Forestry
 
-Collection of forestry related modules.
+Odoo modules extending the `vertical` module.
 
 ## Usage
 
-Clone module into Odoo addon directory.
+Clone this repo into the Odoo addons directory.
 
 ```bash
-git clone git@github.com:mint-system/odoo-apps-vertical-forestry.git ./addons/vertical_forestry
+git clone git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git ./addons/vertical_forestry
 ```
 
 ## Available modules
 
 | Module | Summary |
-| --- | --- |
-| [forestry_base](forestry_base) |         Base module of the forestry vertical integration apps. |
-| [forestry_project](forestry_project) |         Extend project app for forestry. |
-| [forestry_stock](forestry_stock) |         Extend timesheet app for stock. |
-| [forestry_timesheet](forestry_timesheet) |         Extend timesheet app for forestry. |
+| ------ | ------- |
+|        |         |
